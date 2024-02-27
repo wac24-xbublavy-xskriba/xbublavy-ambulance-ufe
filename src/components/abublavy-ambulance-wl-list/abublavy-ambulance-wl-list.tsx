@@ -34,6 +34,14 @@ export class AbublavyAmbulanceWlList {
         estimatedDurationMinutes: 15,
         condition: 'Bolesti hrdla',
       },
+      {
+        name: 'Ing. Ferdinand Trety',
+        patientId: '10028',
+        since: new Date(Date.now() - 72 * 60).toISOString(),
+        estimatedStart: new Date(Date.now() + 5 * 60).toISOString(),
+        estimatedDurationMinutes: 15,
+        condition: 'Bolesti hrdla',
+      },
     ]);
   }
 
