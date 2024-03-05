@@ -6,6 +6,12 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
+    interface AbublavyAmbulanceWlApp {
+        "basePath": string;
+    }
+    interface AbublavyAmbulanceWlEditor {
+        "entryId": string;
+    }
     interface AbublavyAmbulanceWlList {
     }
     interface MyComponent {
@@ -23,8 +29,50 @@ export namespace Components {
         "middle": string;
     }
 }
+export interface AbublavyAmbulanceWlEditorCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLAbublavyAmbulanceWlEditorElement;
+}
+export interface AbublavyAmbulanceWlListCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLAbublavyAmbulanceWlListElement;
+}
 declare global {
+    interface HTMLAbublavyAmbulanceWlAppElement extends Components.AbublavyAmbulanceWlApp, HTMLStencilElement {
+    }
+    var HTMLAbublavyAmbulanceWlAppElement: {
+        prototype: HTMLAbublavyAmbulanceWlAppElement;
+        new (): HTMLAbublavyAmbulanceWlAppElement;
+    };
+    interface HTMLAbublavyAmbulanceWlEditorElementEventMap {
+        "editor-closed": string;
+    }
+    interface HTMLAbublavyAmbulanceWlEditorElement extends Components.AbublavyAmbulanceWlEditor, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLAbublavyAmbulanceWlEditorElementEventMap>(type: K, listener: (this: HTMLAbublavyAmbulanceWlEditorElement, ev: AbublavyAmbulanceWlEditorCustomEvent<HTMLAbublavyAmbulanceWlEditorElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLAbublavyAmbulanceWlEditorElementEventMap>(type: K, listener: (this: HTMLAbublavyAmbulanceWlEditorElement, ev: AbublavyAmbulanceWlEditorCustomEvent<HTMLAbublavyAmbulanceWlEditorElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLAbublavyAmbulanceWlEditorElement: {
+        prototype: HTMLAbublavyAmbulanceWlEditorElement;
+        new (): HTMLAbublavyAmbulanceWlEditorElement;
+    };
+    interface HTMLAbublavyAmbulanceWlListElementEventMap {
+        "entry-clicked": string;
+    }
     interface HTMLAbublavyAmbulanceWlListElement extends Components.AbublavyAmbulanceWlList, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLAbublavyAmbulanceWlListElementEventMap>(type: K, listener: (this: HTMLAbublavyAmbulanceWlListElement, ev: AbublavyAmbulanceWlListCustomEvent<HTMLAbublavyAmbulanceWlListElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLAbublavyAmbulanceWlListElementEventMap>(type: K, listener: (this: HTMLAbublavyAmbulanceWlListElement, ev: AbublavyAmbulanceWlListCustomEvent<HTMLAbublavyAmbulanceWlListElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLAbublavyAmbulanceWlListElement: {
         prototype: HTMLAbublavyAmbulanceWlListElement;
@@ -37,12 +85,22 @@ declare global {
         new (): HTMLMyComponentElement;
     };
     interface HTMLElementTagNameMap {
+        "abublavy-ambulance-wl-app": HTMLAbublavyAmbulanceWlAppElement;
+        "abublavy-ambulance-wl-editor": HTMLAbublavyAmbulanceWlEditorElement;
         "abublavy-ambulance-wl-list": HTMLAbublavyAmbulanceWlListElement;
         "my-component": HTMLMyComponentElement;
     }
 }
 declare namespace LocalJSX {
+    interface AbublavyAmbulanceWlApp {
+        "basePath"?: string;
+    }
+    interface AbublavyAmbulanceWlEditor {
+        "entryId"?: string;
+        "onEditor-closed"?: (event: AbublavyAmbulanceWlEditorCustomEvent<string>) => void;
+    }
     interface AbublavyAmbulanceWlList {
+        "onEntry-clicked"?: (event: AbublavyAmbulanceWlListCustomEvent<string>) => void;
     }
     interface MyComponent {
         /**
@@ -59,6 +117,8 @@ declare namespace LocalJSX {
         "middle"?: string;
     }
     interface IntrinsicElements {
+        "abublavy-ambulance-wl-app": AbublavyAmbulanceWlApp;
+        "abublavy-ambulance-wl-editor": AbublavyAmbulanceWlEditor;
         "abublavy-ambulance-wl-list": AbublavyAmbulanceWlList;
         "my-component": MyComponent;
     }
@@ -67,6 +127,8 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "abublavy-ambulance-wl-app": LocalJSX.AbublavyAmbulanceWlApp & JSXBase.HTMLAttributes<HTMLAbublavyAmbulanceWlAppElement>;
+            "abublavy-ambulance-wl-editor": LocalJSX.AbublavyAmbulanceWlEditor & JSXBase.HTMLAttributes<HTMLAbublavyAmbulanceWlEditorElement>;
             "abublavy-ambulance-wl-list": LocalJSX.AbublavyAmbulanceWlList & JSXBase.HTMLAttributes<HTMLAbublavyAmbulanceWlListElement>;
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
         }
