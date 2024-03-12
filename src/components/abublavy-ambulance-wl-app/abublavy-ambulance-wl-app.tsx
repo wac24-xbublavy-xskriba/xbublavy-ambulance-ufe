@@ -56,7 +56,12 @@ export class AbublavyAmbulanceWlApp {
     return (
       <Host>
         {element === 'editor' ? (
-          <abublavy-ambulance-wl-editor entry-id={entryId} oneditor-closed={() => navigate('./list')}></abublavy-ambulance-wl-editor>
+          <abublavy-ambulance-wl-editor
+            entry-id={entryId}
+            ambulance-id={this.ambulanceId}
+            api-base={this.apiBase}
+            oneditor-closed={() => navigate('./list')}
+          ></abublavy-ambulance-wl-editor>
         ) : (
           <abublavy-ambulance-wl-list
             ambulance-id={this.ambulanceId}
