@@ -40,6 +40,8 @@ export class AbublavyAmbulanceWlApp {
     toRelative(location.pathname);
   }
   render() {
+    console.debug('abublavy-ambulance-wl-app.render() - path: %s', this.relativePath);
+
     let element = 'list';
     let entryId = '@new';
 
